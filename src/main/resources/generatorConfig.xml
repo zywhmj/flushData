@@ -59,7 +59,7 @@
         </javaClientGenerator>
 
         <!-- 数据表或视图与实体类Bean的映射 -->
-        <table schema="" tableName="p2p_member" domainObjectName="p2pMember"
+        <table schema="" tableName="p2p_member" domainObjectName="P2pMember"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

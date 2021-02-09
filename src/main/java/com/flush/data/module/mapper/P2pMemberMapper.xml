@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.flush.data.module.dao.P2pMemberMapper">
+  <resultMap id="BaseResultMap" type="com.flush.data.module.entity.P2pMember">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_photo" jdbcType="VARCHAR" property="userPhoto" />
+    <result column="user_pass" jdbcType="CHAR" property="userPass" />
+    <result column="user_type" jdbcType="TINYINT" property="userType" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="user_level" jdbcType="TINYINT" property="userLevel" />
+    <result column="level_active_time" jdbcType="INTEGER" property="levelActiveTime" />
+    <result column="degrade_days" jdbcType="INTEGER" property="degradeDays" />
+    <result column="credits" jdbcType="BIGINT" property="credits" />
+    <result column="scores" jdbcType="BIGINT" property="scores" />
+    <result column="reg_time" jdbcType="INTEGER" property="regTime" />
+    <result column="reg_ip" jdbcType="VARCHAR" property="regIp" />
+    <result column="recommend_id" jdbcType="INTEGER" property="recommendId" />
+    <result column="expand_num" jdbcType="VARCHAR" property="expandNum" />
+    <result column="delicated_customer" jdbcType="BIGINT" property="delicatedCustomer" />
+    <result column="platform" jdbcType="VARCHAR" property="platform" />
+    <result column="reg_from_seo" jdbcType="VARCHAR" property="regFromSeo" />
+    <result column="user_from" jdbcType="VARCHAR" property="userFrom" />
+    <result column="fadada_id" jdbcType="VARCHAR" property="fadadaId" />
+    <result column="auto_sign_contract_id" jdbcType="INTEGER" property="autoSignContractId" />
+    <result column="auto_sign_contract" jdbcType="TINYINT" property="autoSignContract" />
+    <result column="borrower_auto_sign_contract_id" jdbcType="INTEGER" property="borrowerAutoSignContractId" />
+    <result column="client_id" jdbcType="VARCHAR" property="clientId" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="username_update_time" jdbcType="INTEGER" property="usernameUpdateTime" />
+    <result column="free_withdraw_num" jdbcType="INTEGER" property="freeWithdrawNum" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="promote" jdbcType="VARCHAR" property="promote" />
+    <result column="plan_contract_id" jdbcType="INTEGER" property="planContractId" />
+    <result column="loan_user_phone" jdbcType="VARCHAR" property="loanUserPhone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, user_photo, user_pass, user_type, user_email, user_phone, user_level, 
+    level_active_time, degrade_days, credits, scores, reg_time, reg_ip, recommend_id, 
+    expand_num, delicated_customer, platform, reg_from_seo, user_from, fadada_id, auto_sign_contract_id, 
+    auto_sign_contract, borrower_auto_sign_contract_id, client_id, salt, username_update_time, 
+    free_withdraw_num, channel, promote, plan_contract_id, loan_user_phone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from p2p_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from p2p_member
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.flush.data.module.entity.P2pMember">
+    insert into p2p_member (id, user_name, user_photo, 
+      user_pass, user_type, user_email, 
+      user_phone, user_level, level_active_time, 
+      degrade_days, credits, scores, 
+      reg_time, reg_ip, recommend_id, 
+      expand_num, delicated_customer, platform, 
+      reg_from_seo, user_from, fadada_id, 
+      auto_sign_contract_id, auto_sign_contract, borrower_auto_sign_contract_id, 
+      client_id, salt, username_update_time, 
+      free_withdraw_num, channel, promote, 
+      plan_contract_id, loan_user_phone)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPhoto,jdbcType=VARCHAR}, 
+      #{userPass,jdbcType=CHAR}, #{userType,jdbcType=TINYINT}, #{userEmail,jdbcType=VARCHAR}, 
+      #{userPhone,jdbcType=VARCHAR}, #{userLevel,jdbcType=TINYINT}, #{levelActiveTime,jdbcType=INTEGER}, 
+      #{degradeDays,jdbcType=INTEGER}, #{credits,jdbcType=BIGINT}, #{scores,jdbcType=BIGINT}, 
+      #{regTime,jdbcType=INTEGER}, #{regIp,jdbcType=VARCHAR}, #{recommendId,jdbcType=INTEGER}, 
+      #{expandNum,jdbcType=VARCHAR}, #{delicatedCustomer,jdbcType=BIGINT}, #{platform,jdbcType=VARCHAR}, 
+      #{regFromSeo,jdbcType=VARCHAR}, #{userFrom,jdbcType=VARCHAR}, #{fadadaId,jdbcType=VARCHAR}, 
+      #{autoSignContractId,jdbcType=INTEGER}, #{autoSignContract,jdbcType=TINYINT}, #{borrowerAutoSignContractId,jdbcType=INTEGER}, 
+      #{clientId,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{usernameUpdateTime,jdbcType=INTEGER}, 
+      #{freeWithdrawNum,jdbcType=INTEGER}, #{channel,jdbcType=VARCHAR}, #{promote,jdbcType=VARCHAR}, 
+      #{planContractId,jdbcType=INTEGER}, #{loanUserPhone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.flush.data.module.entity.P2pMember">
+    insert into p2p_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPhoto != null">
+        user_photo,
+      </if>
+      <if test="userPass != null">
+        user_pass,
+      </if>
+      <if test="userType != null">
+        user_type,
+      </if>
+      <if test="userEmail != null">
+        user_email,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="userLevel != null">
+        user_level,
+      </if>
+      <if test="levelActiveTime != null">
+        level_active_time,
+      </if>
+      <if test="degradeDays != null">
+        degrade_days,
+      </if>
+      <if test="credits != null">
+        credits,
+      </if>
+      <if test="scores != null">
+        scores,
+      </if>
+      <if test="regTime != null">
+        reg_time,
+      </if>
+      <if test="regIp != null">
+        reg_ip,
+      </if>
+      <if test="recommendId != null">
+        recommend_id,
+      </if>
+      <if test="expandNum != null">
+        expand_num,
+      </if>
+      <if test="delicatedCustomer != null">
+        delicated_customer,
+      </if>
+      <if test="platform != null">
+        platform,
+      </if>
+      <if test="regFromSeo != null">
+        reg_from_seo,
+      </if>
+      <if test="userFrom != null">
+        user_from,
+      </if>
+      <if test="fadadaId != null">
+        fadada_id,
+      </if>
+      <if test="autoSignContractId != null">
+        auto_sign_contract_id,
+      </if>
+      <if test="autoSignContract != null">
+        auto_sign_contract,
+      </if>
+      <if test="borrowerAutoSignContractId != null">
+        borrower_auto_sign_contract_id,
+      </if>
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="salt != null">
+        salt,
+      </if>
+      <if test="usernameUpdateTime != null">
+        username_update_time,
+      </if>
+      <if test="freeWithdrawNum != null">
+        free_withdraw_num,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="promote != null">
+        promote,
+      </if>
+      <if test="planContractId != null">
+        plan_contract_id,
+      </if>
+      <if test="loanUserPhone != null">
+        loan_user_phone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userPass != null">
+        #{userPass,jdbcType=CHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=TINYINT},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null">
+        #{userLevel,jdbcType=TINYINT},
+      </if>
+      <if test="levelActiveTime != null">
+        #{levelActiveTime,jdbcType=INTEGER},
+      </if>
+      <if test="degradeDays != null">
+        #{degradeDays,jdbcType=INTEGER},
+      </if>
+      <if test="credits != null">
+        #{credits,jdbcType=BIGINT},
+      </if>
+      <if test="scores != null">
+        #{scores,jdbcType=BIGINT},
+      </if>
+      <if test="regTime != null">
+        #{regTime,jdbcType=INTEGER},
+      </if>
+      <if test="regIp != null">
+        #{regIp,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendId != null">
+        #{recommendId,jdbcType=INTEGER},
+      </if>
+      <if test="expandNum != null">
+        #{expandNum,jdbcType=VARCHAR},
+      </if>
+      <if test="delicatedCustomer != null">
+        #{delicatedCustomer,jdbcType=BIGINT},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="regFromSeo != null">
+        #{regFromSeo,jdbcType=VARCHAR},
+      </if>
+      <if test="userFrom != null">
+        #{userFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="fadadaId != null">
+        #{fadadaId,jdbcType=VARCHAR},
+      </if>
+      <if test="autoSignContractId != null">
+        #{autoSignContractId,jdbcType=INTEGER},
+      </if>
+      <if test="autoSignContract != null">
+        #{autoSignContract,jdbcType=TINYINT},
+      </if>
+      <if test="borrowerAutoSignContractId != null">
+        #{borrowerAutoSignContractId,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null">
+        #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="usernameUpdateTime != null">
+        #{usernameUpdateTime,jdbcType=INTEGER},
+      </if>
+      <if test="freeWithdrawNum != null">
+        #{freeWithdrawNum,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="promote != null">
+        #{promote,jdbcType=VARCHAR},
+      </if>
+      <if test="planContractId != null">
+        #{planContractId,jdbcType=INTEGER},
+      </if>
+      <if test="loanUserPhone != null">
+        #{loanUserPhone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.flush.data.module.entity.P2pMember">
+    update p2p_member
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        user_photo = #{userPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="userPass != null">
+        user_pass = #{userPass,jdbcType=CHAR},
+      </if>
+      <if test="userType != null">
+        user_type = #{userType,jdbcType=TINYINT},
+      </if>
+      <if test="userEmail != null">
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null">
+        user_level = #{userLevel,jdbcType=TINYINT},
+      </if>
+      <if test="levelActiveTime != null">
+        level_active_time = #{levelActiveTime,jdbcType=INTEGER},
+      </if>
+      <if test="degradeDays != null">
+        degrade_days = #{degradeDays,jdbcType=INTEGER},
+      </if>
+      <if test="credits != null">
+        credits = #{credits,jdbcType=BIGINT},
+      </if>
+      <if test="scores != null">
+        scores = #{scores,jdbcType=BIGINT},
+      </if>
+      <if test="regTime != null">
+        reg_time = #{regTime,jdbcType=INTEGER},
+      </if>
+      <if test="regIp != null">
+        reg_ip = #{regIp,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendId != null">
+        recommend_id = #{recommendId,jdbcType=INTEGER},
+      </if>
+      <if test="expandNum != null">
+        expand_num = #{expandNum,jdbcType=VARCHAR},
+      </if>
+      <if test="delicatedCustomer != null">
+        delicated_customer = #{delicatedCustomer,jdbcType=BIGINT},
+      </if>
+      <if test="platform != null">
+        platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="regFromSeo != null">
+        reg_from_seo = #{regFromSeo,jdbcType=VARCHAR},
+      </if>
+      <if test="userFrom != null">
+        user_from = #{userFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="fadadaId != null">
+        fadada_id = #{fadadaId,jdbcType=VARCHAR},
+      </if>
+      <if test="autoSignContractId != null">
+        auto_sign_contract_id = #{autoSignContractId,jdbcType=INTEGER},
+      </if>
+      <if test="autoSignContract != null">
+        auto_sign_contract = #{autoSignContract,jdbcType=TINYINT},
+      </if>
+      <if test="borrowerAutoSignContractId != null">
+        borrower_auto_sign_contract_id = #{borrowerAutoSignContractId,jdbcType=INTEGER},
+      </if>
+      <if test="clientId != null">
+        client_id = #{clientId,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        salt = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="usernameUpdateTime != null">
+        username_update_time = #{usernameUpdateTime,jdbcType=INTEGER},
+      </if>
+      <if test="freeWithdrawNum != null">
+        free_withdraw_num = #{freeWithdrawNum,jdbcType=INTEGER},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="promote != null">
+        promote = #{promote,jdbcType=VARCHAR},
+      </if>
+      <if test="planContractId != null">
+        plan_contract_id = #{planContractId,jdbcType=INTEGER},
+      </if>
+      <if test="loanUserPhone != null">
+        loan_user_phone = #{loanUserPhone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.flush.data.module.entity.P2pMember">
+    update p2p_member
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_photo = #{userPhoto,jdbcType=VARCHAR},
+      user_pass = #{userPass,jdbcType=CHAR},
+      user_type = #{userType,jdbcType=TINYINT},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      user_level = #{userLevel,jdbcType=TINYINT},
+      level_active_time = #{levelActiveTime,jdbcType=INTEGER},
+      degrade_days = #{degradeDays,jdbcType=INTEGER},
+      credits = #{credits,jdbcType=BIGINT},
+      scores = #{scores,jdbcType=BIGINT},
+      reg_time = #{regTime,jdbcType=INTEGER},
+      reg_ip = #{regIp,jdbcType=VARCHAR},
+      recommend_id = #{recommendId,jdbcType=INTEGER},
+      expand_num = #{expandNum,jdbcType=VARCHAR},
+      delicated_customer = #{delicatedCustomer,jdbcType=BIGINT},
+      platform = #{platform,jdbcType=VARCHAR},
+      reg_from_seo = #{regFromSeo,jdbcType=VARCHAR},
+      user_from = #{userFrom,jdbcType=VARCHAR},
+      fadada_id = #{fadadaId,jdbcType=VARCHAR},
+      auto_sign_contract_id = #{autoSignContractId,jdbcType=INTEGER},
+      auto_sign_contract = #{autoSignContract,jdbcType=TINYINT},
+      borrower_auto_sign_contract_id = #{borrowerAutoSignContractId,jdbcType=INTEGER},
+      client_id = #{clientId,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      username_update_time = #{usernameUpdateTime,jdbcType=INTEGER},
+      free_withdraw_num = #{freeWithdrawNum,jdbcType=INTEGER},
+      channel = #{channel,jdbcType=VARCHAR},
+      promote = #{promote,jdbcType=VARCHAR},
+      plan_contract_id = #{planContractId,jdbcType=INTEGER},
+      loan_user_phone = #{loanUserPhone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="login" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from p2p_member
+    where user_name = #{user,jdbcType=VARCHAR}
+  </select>
+</mapper>
