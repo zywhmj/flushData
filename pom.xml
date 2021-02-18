@@ -65,6 +65,13 @@
             <version>1.4.7.RELEASE</version>
             <!--<version>2.4.3.RELEASE</version>-->
         </dependency>
+
+        <!-- mybatis-plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.3.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -88,6 +95,18 @@
             </plugin>
 
         </plugins>
+
+        <!-- mybatis映射文件生成 -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
     </build>
 
 </project>
