@@ -14,4 +14,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 1234@abcd
-    url: jdbc:mysql://localhost:3306/rjsdepositdb?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf-8&connectTimeout=30000&socketTimeout=60000
+    url: jdbc:mysql://localhost:3306/vue_login?serverTimezone=UTC&useUnicode=true&useSSL=false&characterEncoding=utf-8&connectTimeout=30000&socketTimeout=60000
