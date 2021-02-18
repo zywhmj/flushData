@@ -1,6 +1,5 @@
 package com.flush.data.module.filter;
 
-import com.alibaba.fastjson.JSON;
 import com.flush.data.module.core.AccessLimit;
 import com.flush.data.module.service.RedisService;
 import com.flush.data.module.utils.CodeMsg;
@@ -8,18 +7,24 @@ import com.flush.data.module.utils.repUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.OutputStream;
 
 /**
- * @author yhq
- * @date 2018/9/10 16:05
+ * 拦截器
+ * 方式：
+ * ① 继承HandlerInterceptorAdapter类（已过时）
+ * ② 实现HandlerInterceptor接口（常用）
+ * 说明:
+ * preHandle：在业务处理器处理请求之前被调用。预处理，可以进行编码、安全控制、权限校验等处理；
+ * postHandle：在业务处理器处理请求执行完成后，生成视图之前执行。后处理（调用了Service并返回ModelAndView，但未进行页面渲染），有机会修改ModelAndView （这个博主就基本不怎么用了）；
+ * afterCompletion：在DispatcherServlet完全处理完请求后被调用，可用于清理资源等。返回处理（已经渲染了页面）；
  */
 @Component
-public class FangshuaInterceptor extends HandlerInterceptorAdapter {
+public class FangshuaInterceptor implements HandlerInterceptor {
 
     @Autowired
     private RedisService redisService;
@@ -69,4 +74,16 @@ public class FangshuaInterceptor extends HandlerInterceptorAdapter {
     }
 
 
+    @Override
+    public void postHandle(
+            HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
+        System.out.println();
+        System.out.println("======================postHandle====================");
+    }
+
+    @Override
+    public void afterCompletion(
+            HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        System.out.println("======================afterCompletion====================");
+    }
 }
