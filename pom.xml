@@ -110,6 +110,19 @@
             <version>2.6.0</version>
         </dependency>
         <!-- java导出，3.17版本 对应ExportDataController程序 ********END******** -->
+
+        <!-- java生成二维码及解析 -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <!-- java生成二维码及解析 -->
     </dependencies>
 
     <build>
