@@ -79,6 +79,37 @@
             <artifactId>freemarker</artifactId>
             <version>2.3.30</version>
         </dependency>
+
+        <!-- java导出，3.9版本 对应 ********START******** -->
+       <!--<dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>-->
+        <!-- java导出，3.9版本 对应 ********END******** -->
+
+        <!-- java导出，3.17版本 对应ExportDataController程序 ********START******** -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+        <!-- java导出，3.17版本 对应ExportDataController程序 ********END******** -->
     </dependencies>
 
     <build>
