@@ -1,0 +1,16 @@
+
+
+java可动态写入list到word中方法：
+1、先在doc中填写模板，先使用中文，如templete.doc中所示
+2、另存为xml文件，并使用在线xml格式化工具（http://web.chacuo.net/formatxml）格式化后并保存到刚才的xml文件中
+3、修改第1步中模板内的中文使用英文名，如果有循环，则修改如下：
+     ctrl+F 搜索<w:tr，找到对应的文字需要循环的下面添加   <#list userList as user>，并在</w:tr后面加上</#list>结尾！
+4、把后缀名改为ftl，并放到项目templete下，修改WordContentController的getData方法中要填充的数据（key对应第三步的英文名）
+5、修改WordContentController的creatDoc方法中加载的模板文件及输出文件路径即可
+6、执行main方法即可输出doc(或docx)文件
+
+使用到的资源：
+1、WordContentController类
+2、templete.doc初始模板
+3、templete-tmp.xml模板文件(由templete.doc转换并格式化后得到的文件，并且修改模板需替换的文字)
+4、templete-tmp.ftl模板文件(由templete-tmp.xml改后缀名得到的文件)
