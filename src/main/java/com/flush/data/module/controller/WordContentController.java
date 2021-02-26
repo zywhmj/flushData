@@ -41,7 +41,7 @@ public class WordContentController {
             e.printStackTrace();
         }
         //输出文档路径及名称,注意后缀一定要.doc！不然代码运行完后会打不开
-        File outFile = new File("D://test//test.docx"); //TODO 输出的文件目录
+        File outFile = new File("D://test//test.doc"); //TODO 输出的文件目录
         Writer out = null;
         try {
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
@@ -84,12 +84,34 @@ public class WordContentController {
             u.put("remark", "备注"+i);
             dataList.add(u);
         }
+        // TODO 填充空行,参数：①传入数据  ②填满表格的行数  ③是否填充（true-填充，false-不填充）
+        insertBakData(dataList, 17, true);
+
         dataMap.put("dataList", dataList);
 
         dataMap.put("projectNo", "CNNS-2021-208");
         dataMap.put("projectName", "广州天河区传销案");
 
     }
+
+    //TODO 目前17行为整页数据可以塞满
+    private void insertBakData(List<Map<String,String>> dataList, int row, Boolean flag) {
+        if(dataList.isEmpty() || !flag){
+            return;
+        }else{
+            row = row - dataList.size();
+        }
+        for(int i = 0; i < row; i++){
+            Map<String, String> u = new HashMap<>();
+            u.put("subNum", "");
+            u.put("typeName", "");
+            u.put("status", "");
+            u.put("describe", "");
+            u.put("remark", "");
+            dataList.add(u);
+        }
+    }
+
     public static void main(String[] args) {
         WordContentController docAdd = new WordContentController();
         docAdd.creatDoc();
