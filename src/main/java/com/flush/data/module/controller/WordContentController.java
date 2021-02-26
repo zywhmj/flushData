@@ -41,7 +41,7 @@ public class WordContentController {
             e.printStackTrace();
         }
         //输出文档路径及名称,注意后缀一定要.doc！不然代码运行完后会打不开
-        File outFile = new File("D://test//test.doc"); //TODO 输出的文件目录
+        File outFile = new File("D://test//检材清单.doc"); //TODO 输出的文件目录
         Writer out = null;
         try {
             out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile)));
@@ -50,6 +50,7 @@ public class WordContentController {
         }
         try {
             template.process(dataMap, out);
+            System.out.println("=========文件输出目录："+outFile.getPath());
             // System.out.println(out); 查看数据
             //  System.out.println(dataMap); 查看数据
         } catch (TemplateException e) {
@@ -77,7 +78,7 @@ public class WordContentController {
         List<Map<String, String>> dataList = new ArrayList<Map<String, String>>();
         for (int i = 1; i < 4; i++) {
             Map<String, String> u = new HashMap<>();
-            u.put("subNum", "检材"+i);
+            u.put("subNum", "JC-CNNS-2021-00"+i);
             u.put("typeName", "类型名称"+i);
             u.put("status", "状态"+i);
             u.put("describe", "描述"+i);

@@ -73,11 +73,11 @@
             <version>3.3.2</version>
         </dependency>
 
-        <!--freemarker java写入word内容-->
+        <!--freemarker java写入word内容 (注： freemarker版本，匹配Spring Boot 版本，参考https://blog.csdn.net/qq_37335810/article/details/105536735)-->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>2.3.9</version>
+            <version>2.3.30</version>
         </dependency>
     </dependencies>
 
