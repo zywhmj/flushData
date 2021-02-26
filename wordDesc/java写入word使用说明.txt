@@ -14,3 +14,10 @@ java可动态写入list到word中方法：
 2、templete.doc初始模板
 3、templete-tmp.xml模板文件(由templete.doc转换并格式化后得到的文件，并且修改模板需替换的文字)
 4、templete-tmp.ftl模板文件(由templete-tmp.xml改后缀名得到的文件)
+
+
+启动警告：
+classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+解决：
+在resource下新建templates并存放 *.html、*.ftl、*.jsp 其一即可！
+或者启动类加上排除：exclude = { FreeMarkerAutoConfiguration.class }
